@@ -2024,7 +2024,7 @@ const Gn = (e) => {
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
-  color: #000000;
+  color: #1749ad;
 `, ea = ({ loading: e, loaded: r }) => {
   const [n, a] = Dt(!0);
   return We(() => a(!1), []), n ? e : r;
