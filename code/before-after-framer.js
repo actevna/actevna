@@ -1787,7 +1787,7 @@ Wn.forEach(function(e) {
 });
 const zn = (e) => Br(Yn, {
   children: [L(Un, {
-    src: "https://assets.website-files.com/5beab1239ac88487c3a6608f/616b9cffac007b154cee8afc_Logo.webp"
+    src: "https://files.actevna.com/actevnalc.png"
   }), L(qn, {
     children: e.text
   })]
@@ -2039,7 +2039,7 @@ const Gn = (e) => {
   right: {
     type: "responsiveimage",
     title: "Right Image",
-    description: "[Flowbase](https://www.flowbase.co/) is the worlds largest component resource site. Explore endless components and templates to inspire your workflows and help you build better, faster."
+    description: "Slider Tool"
   },
   radius: {
     type: "number",
