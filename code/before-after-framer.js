@@ -2016,7 +2016,7 @@ const Gn = (e) => {
   flex-direction: row;
   align-items: flex-start;
   padding: 2px 16px;
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 6px;
 
