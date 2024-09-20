@@ -2107,7 +2107,7 @@ const Gn = (e) => {
       },
       after: {
         type: "string",
-        defaultValue: "With Actevna®"
+        defaultValue: "6 Weeks With Actevna®"
       }
     }
   },
