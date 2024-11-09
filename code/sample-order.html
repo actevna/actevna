@@ -30,67 +30,10 @@
 
         #product-component-1731183710143 {
             width: 100%;
-            /* Larger max-width on desktop */
             max-width: 300px;
             margin: 0;
-            padding: 0 10px;
+            padding: 0;
             box-sizing: border-box;
-        }
-
-        /* Mobile-specific styles */
-        @media (max-width: 480px) {
-            #product-component-1731183710143 {
-                /* Slightly smaller on mobile but not too small */
-                max-width: 280px;
-                padding: 0 5px;
-            }
-        }
-
-        /* Override Shopify's default styles */
-        .shopify-buy__product {
-            max-width: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
-        .shopify-buy__btn {
-            width: 100% !important;
-            max-width: 280px !important;
-            margin: 0 auto !important;
-            display: block !important;
-            /* Ensure button text doesn't wrap on mobile */
-            white-space: nowrap !important;
-            /* Make touch target larger on mobile */
-            min-height: 44px !important;
-        }
-
-        /* Reduce spacing around price */
-        .shopify-buy__product__price {
-            margin: 5px 0 !important;
-            /* Ensure price is legible on mobile */
-            font-size: 16px !important;
-        }
-
-        /* Add delivery explanation */
-        .shopify-buy__product__price::after {
-            content: '(Cost of chilled delivery)';
-            display: block;
-            color: #1749ad;
-            /* Slightly larger on mobile for better readability */
-            font-size: 14px !important;
-            margin-top: 2px;
-            font-weight: normal;
-            /* Prevent text wrapping if possible */
-            white-space: nowrap;
-        }
-
-        /* Additional mobile optimizations */
-        @media (max-width: 480px) {
-            .shopify-buy__btn {
-                /* Larger padding on mobile for better touch target */
-                padding: 12px 20px !important;
-                font-size: 16px !important;
-            }
         }
     </style>
 </head>
@@ -129,13 +72,23 @@
             options: {
               "product": {
                 "layout": "horizontal",
+                "contents": {
+                  "img": false,
+                  "title": false,
+                  "price": true,
+                  "options": false,
+                  "description": false,
+                  "buttonWithQuantity": false,
+                  "quantity": false
+                },
                 "styles": {
                   "product": {
                     "text-align": "center",
                     "margin": "0"
                   },
                   "price": {
-                    "margin": "5px 0"
+                    "margin": "5px 0",
+                    "font-size": "16px"
                   },
                   "button": {
                     "font-family": "Forma DJR Text, sans-serif",
@@ -148,12 +101,9 @@
                       "background-color": "#1b53c3"
                     },
                     "border-radius": "40px",
-                    "padding-left": "20px",
-                    "padding-right": "20px",
-                    "@media (max-width: 480px)": {
-                      "padding": "12px 20px",
-                      "font-size": "16px"
-                    }
+                    "padding": "12px 20px",
+                    "width": "100%",
+                    "font-size": "16px"
                   }
                 },
                 "buttonDestination": "checkout",
@@ -162,6 +112,20 @@
                 }
               }
             }
+          }).then(function(component) {
+            // Add the delivery explanation text after the price
+            setTimeout(function() {
+              var priceElement = document.querySelector('.shopify-buy__product__price');
+              if (priceElement) {
+                var span = document.createElement('span');
+                span.style.display = 'block';
+                span.style.color = '#1749ad';
+                span.style.fontSize = '14px';
+                span.style.marginTop = '2px';
+                span.textContent = '(Cost of chilled delivery)';
+                priceElement.appendChild(span);
+              }
+            }, 500);
           });
         });
       }
