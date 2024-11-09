@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sample Button</title>
     <style>
         @font-face {
             font-family: 'Forma DJR Text';
-            src: url('https://files.actenvna.com/Forma%20DJR%20Text%20Medium.woff2') format('woff2'),
-                 url('https://files.actenvna.com/Forma%20DJR%20Text%20Medium.woff') format('woff');
+            src: url('/Forma%20DJR%20Text%20Medium.woff2') format('woff2'),
+                 url('/Forma%20DJR%20Text%20Medium.woff') format('woff');
             font-weight: 500;
             font-style: normal;
             font-display: swap;
@@ -17,6 +18,32 @@
             margin: 0;
             padding: 0;
             background: transparent;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #product-component-1731183710143 {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Override Shopify's default styles to be more responsive */
+        .shopify-buy__product {
+            max-width: none !important;
+            margin-left: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .shopify-buy__btn {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
         }
     </style>
 </head>
@@ -54,13 +81,10 @@
             moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
             options: {
               "product": {
+                "layout": "horizontal",
                 "styles": {
                   "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
-                      "margin-left": "20px",
-                      "margin-bottom": "50px"
-                    }
+                    "text-align": "center"
                   },
                   "button": {
                     "font-family": "Forma DJR Text, sans-serif",
