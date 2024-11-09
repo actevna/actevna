@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Button</title>
+    <style>
+        @font-face {
+            font-family: 'Forma DJR Text';
+            src: url('https://files.actenvna.com/Forma%20DJR%20Text%20Medium.woff2') format('woff2'),
+                 url('https://files.actenvna.com/Forma%20DJR%20Text%20Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div id='product-component-1731183710143'></div>
+    <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'actevna.myshopify.com',
+          storefrontAccessToken: 'c401913ca38d3abf641375d424fa257d',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '8084390772932',
+            node: document.getElementById('product-component-1731183710143'),
+            moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+            options: {
+              "product": {
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "calc(25% - 20px)",
+                      "margin-left": "20px",
+                      "margin-bottom": "50px"
+                    }
+                  },
+                  "button": {
+                    "font-family": "Forma DJR Text, sans-serif",
+                    "font-weight": "500",
+                    ":hover": {
+                      "background-color": "#1b53c3"
+                    },
+                    "background-color": "#1e5cd9",
+                    ":focus": {
+                      "background-color": "#1b53c3"
+                    },
+                    "border-radius": "40px",
+                    "padding-left": "20px",
+                    "padding-right": "20px"
+                  }
+                },
+                "buttonDestination": "checkout",
+                "text": {
+                  "button": "Get Sample"
+                }
+              }
+            }
+          });
+        });
+      }
+    })();
+    /*]]>*/
+    </script>
+</body>
+</html>
