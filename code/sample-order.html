@@ -14,11 +14,15 @@
             font-display: swap;
         }
         
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
             background: transparent;
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,24 +30,67 @@
 
         #product-component-1731183710143 {
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 20px;
+            /* Larger max-width on desktop */
+            max-width: 300px;
+            margin: 0;
+            padding: 0 10px;
             box-sizing: border-box;
         }
 
-        /* Override Shopify's default styles to be more responsive */
+        /* Mobile-specific styles */
+        @media (max-width: 480px) {
+            #product-component-1731183710143 {
+                /* Slightly smaller on mobile but not too small */
+                max-width: 280px;
+                padding: 0 5px;
+            }
+        }
+
+        /* Override Shopify's default styles */
         .shopify-buy__product {
             max-width: none !important;
-            margin-left: 0 !important;
-            margin-bottom: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         .shopify-buy__btn {
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
+            width: 100% !important;
+            max-width: 280px !important;
+            margin: 0 auto !important;
+            display: block !important;
+            /* Ensure button text doesn't wrap on mobile */
+            white-space: nowrap !important;
+            /* Make touch target larger on mobile */
+            min-height: 44px !important;
+        }
+
+        /* Reduce spacing around price */
+        .shopify-buy__product__price {
+            margin: 5px 0 !important;
+            /* Ensure price is legible on mobile */
+            font-size: 16px !important;
+        }
+
+        /* Add delivery explanation */
+        .shopify-buy__product__price::after {
+            content: '(Cost of chilled delivery)';
             display: block;
+            color: #1749ad;
+            /* Slightly larger on mobile for better readability */
+            font-size: 14px !important;
+            margin-top: 2px;
+            font-weight: normal;
+            /* Prevent text wrapping if possible */
+            white-space: nowrap;
+        }
+
+        /* Additional mobile optimizations */
+        @media (max-width: 480px) {
+            .shopify-buy__btn {
+                /* Larger padding on mobile for better touch target */
+                padding: 12px 20px !important;
+                font-size: 16px !important;
+            }
         }
     </style>
 </head>
@@ -84,7 +131,11 @@
                 "layout": "horizontal",
                 "styles": {
                   "product": {
-                    "text-align": "center"
+                    "text-align": "center",
+                    "margin": "0"
+                  },
+                  "price": {
+                    "margin": "5px 0"
                   },
                   "button": {
                     "font-family": "Forma DJR Text, sans-serif",
@@ -98,7 +149,11 @@
                     },
                     "border-radius": "40px",
                     "padding-left": "20px",
-                    "padding-right": "20px"
+                    "padding-right": "20px",
+                    "@media (max-width: 480px)": {
+                      "padding": "12px 20px",
+                      "font-size": "16px"
+                    }
                   }
                 },
                 "buttonDestination": "checkout",
