@@ -14,15 +14,11 @@
             font-display: swap;
         }
         
-        html, body {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
             background: transparent;
-        }
-
-        body {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,36 +26,24 @@
 
         #product-component-1731183710143 {
             width: 100%;
-            max-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
 
-        /* Force center alignment on Shopify elements */
+        /* Override Shopify's default styles to be more responsive */
         .shopify-buy__product {
-            margin: 0 auto !important;
-            text-align: center !important;
-        }
-
-        .shopify-buy__btn-wrapper {
-            text-align: center !important;
-            margin: 0 auto !important;
-            display: flex !important;
-            justify-content: center !important;
+            max-width: none !important;
+            margin-left: 0 !important;
+            margin-bottom: 0 !important;
         }
 
         .shopify-buy__btn {
-            float: none !important;
-            display: inline-block !important;
-            margin: 0 auto !important;
-        }
-
-        /* Style for the price explanation */
-        .shopify-buy__product__actual-price::after {
-            content: '(Cost of chilled delivery)';
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
             display: block;
-            color: #1749ad;
-            font-size: 0.9em;
-            margin-top: 4px;
-            font-weight: normal;
         }
     </style>
 </head>
@@ -97,15 +81,10 @@
             moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
             options: {
               "product": {
-                "iframe": false,
                 "layout": "horizontal",
                 "styles": {
                   "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "100%",
-                      "margin-left": "0",
-                      "margin-bottom": "0"
-                    }
+                    "text-align": "center"
                   },
                   "button": {
                     "font-family": "Forma DJR Text, sans-serif",
@@ -119,22 +98,8 @@
                     },
                     "border-radius": "40px",
                     "padding-left": "20px",
-                    "padding-right": "20px",
-                    "width": "100%",
-                    "max-width": "300px",
-                    "margin": "0 auto"
-                  },
-                  "price": {
-                    "font-family": "Forma DJR Text, sans-serif",
-                    "font-size": "16px",
-                    "margin-bottom": "20px"
+                    "padding-right": "20px"
                   }
-                },
-                "contents": {
-                  "img": false,
-                  "title": false,
-                  "price": true,
-                  "options": false
                 },
                 "buttonDestination": "checkout",
                 "text": {
